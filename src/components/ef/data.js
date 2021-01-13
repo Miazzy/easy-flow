@@ -9,7 +9,6 @@ let data = {
             type: 'task',
             left: '0px',
             top: '300px',
-            ico: 'el-icon-user-solid',
             state: 'success',
             viewOnly: true
         },
@@ -20,7 +19,6 @@ let data = {
             name:'',
             left: '400px',
             top: '100px',
-            ico: 'el-icon-goods',
             state: 'success',
             viewOnly: true
         },
@@ -31,7 +29,6 @@ let data = {
             type: 'task',
             left: '400px',
             top: '300px',
-            ico: 'el-icon-present',
             state: 'success',
             viewOnly: true
         }, {
@@ -41,7 +38,6 @@ let data = {
             type: 'task',
             left: '800px',
             top: '100px',
-            ico: 'el-icon-present',
             state: 'success',
             viewOnly: true
         }, {
@@ -52,7 +48,6 @@ let data = {
             type: 'task',
             left: '1200px',
             top: '100px',
-            ico: 'el-icon-present',
             state: 'success',
             viewOnly: true
         } , {
@@ -63,7 +58,6 @@ let data = {
             type: 'task',
             left: '800px',
             top: '300px',
-            ico: 'el-icon-present',
             state: 'success',
             viewOnly: true
         }, {
@@ -74,7 +68,6 @@ let data = {
             type: 'task',
             left: '1600px',
             top: '300px',
-            ico: 'el-icon-present',
             state: 'success',
             viewOnly: true
         }, {
@@ -85,7 +78,6 @@ let data = {
             type: 'task',
             left: '2000px',
             top: '300px',
-            ico: 'el-icon-present',
             state: 'success',
             viewOnly: true
         }
