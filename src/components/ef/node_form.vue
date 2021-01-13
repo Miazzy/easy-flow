@@ -47,7 +47,6 @@
                     </el-form-item>
                 </el-form>
             </div>
-            <!--            <div class="el-node-form-tag"></div>-->
         </div>
     </div>
 

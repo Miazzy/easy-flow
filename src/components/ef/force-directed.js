@@ -1,9 +1,6 @@
-/**
- * 感谢 https://github.com/chaangliu/ForceDirectedLayout/blob/master/javascript/force-directed.js
- * A force directed graph layout implementation by liuchang on 2018/05/10.
- */
-const CANVAS_WIDTH = 1000
-const CANVAS_HEIGHT = 1000
+const CANVAS_WIDTH = 1000;
+const CANVAS_HEIGHT = 1000;
+
 let k
 let mNodeList = []
 let mEdgeList = []
@@ -12,10 +9,6 @@ let mDyMap = {}
 let mNodeMap = {}
 
 export function ForceDirected(data = {}) {
-    // generate nodes and edges
-    // for (let i = 0; i < 20; i++) {
-    //     mNodeList.push(new Node(i))
-    // }
     k = 0
     mNodeList = []
     mEdgeList = []
@@ -29,15 +22,6 @@ export function ForceDirected(data = {}) {
         mNodeList.push(node)
     }
 
-    // for (let i = 0; i < 20; i++) {
-    //     let edgeCount = Math.random() * 8 + 1
-    //     for (let j = 0; j < edgeCount; j++) {
-    //         let targetId = Math.floor(Math.random() * 20)
-    //         let edge = new Edge(i, targetId)
-    //         mEdgeList.push(edge)
-    //     }
-    // }
-    // line 转 edge
     let lineList = data.lineList
     for (let i = 0; i < lineList.length; i++) {
         let line = lineList[i]
@@ -48,6 +32,7 @@ export function ForceDirected(data = {}) {
     if (mNodeList && mEdgeList) {
         k = Math.sqrt(CANVAS_WIDTH * CANVAS_HEIGHT / mNodeList.length)
     }
+
     for (let i = 0; i < mNodeList.length; i++) {
         let node = mNodeList[i]
         if (node) {
@@ -70,7 +55,7 @@ export function ForceDirected(data = {}) {
         calculateTraction()
         updateCoordinates()
     }
-    // console.log(JSON.stringify(new Result(mNodeList, mEdgeList)))
+
     // 坐标添加px
     for (let i = 0; i < mNodeList.length; i++) {
         let node = mNodeList[i]

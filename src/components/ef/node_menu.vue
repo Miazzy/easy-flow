@@ -14,12 +14,10 @@
 </template>
 <script>
     import draggable from 'vuedraggable'
-
     var mousePosition = {
         left: -1,
         top: -1
     }
-
     export default {
         data() {
             return {

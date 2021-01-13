@@ -40,11 +40,7 @@
     import FlowHelp from '@/components/ef/help'
     import FlowNodeForm from './node_form'
     import lodash from 'lodash'
-    import { getDataA } from './data_A'
-    import { getDataB } from './data_B'
-    import { getDataC } from './data_C'
-    import { getDataD } from './data_D'
-    import { getDataE } from './data_E'
+    import { getData } from './data'
     import { ForceDirected } from './force-directed'
 
     export default {
@@ -120,7 +116,7 @@
             this.jsPlumb = jsPlumb.getInstance()
             this.$nextTick(() => {
                 // 默认加载流程A的数据、在这里可以根据具体的业务返回符合流程数据格式的数据即可
-                this.dataReload(getDataB())
+                this.dataReload(getData())
             })
         },
         methods: {
@@ -451,7 +447,7 @@
             },
             // 模拟载入数据dataB
             dataReloadB() {
-                this.dataReload(getDataB())
+                this.dataReload(getData())
             },
             // 模拟载入数据dataC
             dataReloadC() {

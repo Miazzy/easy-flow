@@ -1,21 +1,30 @@
 <template>
-    <div
-            ref="node"
+    <div    ref="node"
             :style="nodeContainerStyle"
             @click="clickNode"
             @mouseup="changeNodeSite"
-            :class="nodeContainerClass"
+            :class="nodeContainerClass" 
     >
-        <!-- 最左侧的那条竖线 -->
         <div class="ef-node-left"></div>
-        <!-- 节点类型的图标 -->
-        <div class="ef-node-left-ico flow-node-drag">
-            <i :class="nodeIcoClass"></i>
-        </div>
-        <!-- 节点名称 -->
-        <div class="ef-node-text" :show-overflow-tooltip="true">
-            {{node.name}}
-        </div>
+        <template v-if="node.ename && node.name">
+            <div v-if="node.ename" style="font-size:12px; display: block; position: absolute; top: 12px; left: 10px; text-align: center;" >
+                {{node.ename}}
+            </div>
+            <div v-if="node.name" style="font-size: 12px; display: block; position: absolute; top: 32px; left: 10px; text-align: center;" >
+                {{node.name}}
+            </div>
+            <div style="font-size:12px; display: block; position: absolute; top: 45px; left: 10px; text-align: center; transform:scale(0.8); " >
+                {{ node.descript }}
+            </div> 
+        </template>   
+         <template v-if="!(node.ename && node.name)">
+            <div style="font-size:12px; display: block; position: absolute; top: 22px; left: 10px; text-align: center;" >
+                {{node.ename || node.name}}
+            </div>
+            <div style="font-size:12px; display: block; position: absolute; top: 38px; left: 10px; text-align: center; transform:scale(0.8); " >
+                {{ node.descript }}
+            </div> 
+        </template>  
         <!-- 节点状态图标 -->
         <div class="ef-node-right-ico">
             <i class="el-icon-circle-check el-node-state-success" v-show="node.state === 'success'"></i>
@@ -46,7 +55,9 @@
             nodeContainerStyle() {
                 return {
                     top: this.node.top,
-                    left: this.node.left
+                    left: this.node.left,
+                    width: '280px',
+                    height:'65px',
                 }
             },
             nodeIcoClass() {
