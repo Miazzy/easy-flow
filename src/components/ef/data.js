@@ -1,5 +1,5 @@
 let data = {
-    name: '流程B',
+    name: '公司管控架构图',
     nodeList: [
         {
             id: 'nodeA',
