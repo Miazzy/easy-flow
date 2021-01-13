@@ -1,34 +1,15 @@
 <template>
     <div v-if="easyFlowVisible" style="height: calc(100vh);">
         <el-row>
-            <!--顶部工具菜单-->
             <el-col :span="24">
                 <div class="ef-tooltar">
-                    <el-link type="primary" :underline="false">{{data.name}}</el-link>
-                    <el-divider direction="vertical"></el-divider>
-                    <el-button type="text" icon="el-icon-delete" size="large" @click="deleteElement" :disabled="!this.activeElement.type"></el-button>
-                    <el-divider direction="vertical"></el-divider>
-                    <el-button type="text" icon="el-icon-download" size="large" @click="downloadData"></el-button>
-                    <el-divider direction="vertical"></el-divider>
                     <el-button type="text" icon="el-icon-plus" size="large" @click="zoomAdd"></el-button>
                     <el-divider direction="vertical"></el-divider>
                     <el-button type="text" icon="el-icon-minus" size="large" @click="zoomSub"></el-button>
-                    <div style="float: right;margin-right: 5px">
-                        <el-button type="info" plain round icon="el-icon-document" @click="dataInfo" size="mini">流程信息</el-button>
-                        <el-button type="primary" plain round @click="dataReloadA" icon="el-icon-refresh" size="mini">切换流程A</el-button>
-                        <el-button type="primary" plain round @click="dataReloadB" icon="el-icon-refresh" size="mini">切换流程B</el-button>
-                        <el-button type="primary" plain round @click="dataReloadC" icon="el-icon-refresh" size="mini">切换流程C</el-button>
-                        <el-button type="primary" plain round @click="dataReloadD" icon="el-icon-refresh" size="mini">自定义样式</el-button>
-                        <el-button type="primary" plain round @click="dataReloadE" icon="el-icon-refresh" size="mini">力导图</el-button>
-                        <el-button type="info" plain round icon="el-icon-document" @click="openHelp" size="mini">帮助</el-button>
-                    </div>
                 </div>
             </el-col>
         </el-row>
         <div style="display: flex;height: calc(100% - 47px);">
-            <div style="width: 230px;border-right: 1px solid #dce3e8;">
-                <node-menu @addNode="addNode" ref="nodeMenu"></node-menu>
-            </div>
             <div id="efContainer" ref="efContainer" class="container" v-flowDrag>
                 <template v-for="node in data.nodeList">
                     <flow-node
@@ -42,26 +23,16 @@
                     >
                     </flow-node>
                 </template>
-                <!-- 给画布一个默认的宽度和高度 -->
                 <div style="position:absolute;top: 2000px;left: 2000px;">&nbsp;</div>
             </div>
-            <!-- 右侧表单 -->
-            <div style="width: 300px;border-left: 1px solid #dce3e8;background-color: #FBFBFB">
-                <flow-node-form ref="nodeForm" @setLineLabel="setLineLabel" @repaintEverything="repaintEverything"></flow-node-form>
-            </div>
         </div>
-        <!-- 流程数据详情 -->
-        <flow-info v-if="flowInfoVisible" ref="flowInfo" :data="data"></flow-info>
-        <flow-help v-if="flowHelpVisible" ref="flowHelp"></flow-help>
     </div>
 
 </template>
 
 <script>
     import draggable from 'vuedraggable'
-    // import { jsPlumb } from 'jsplumb'
-    // 使用修改后的jsplumb
-    import './jsplumb'
+    import './jsplumb' // 使用修改后的jsplumb
     import { easyFlowMixin } from '@/components/ef/mixins'
     import flowNode from '@/components/ef/node'
     import nodeMenu from '@/components/ef/node_menu'
